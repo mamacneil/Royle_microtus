@@ -34,7 +34,7 @@ sighted = Y.sum(axis=1)>0
 no_sightings = np.array([i for i,x in enumerate(sighted) if not x])
 
 # Standardize masses
-massx = (data.mass-np.mean(data.mass))/np.sqrt(np.var(data.mass))
+massx = (data.mass-np.mean(data.mass))/np.sqrt(np.var(data.mass,ddof=1))
 # Individual masses with missing values
 missing_mass = np.array([x for x in np.array(massx)]+[-999]*Nz)
 massx = np.array([[x]*K for x in missing_mass])
